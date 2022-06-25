@@ -8,6 +8,9 @@ class TariffHour extends TariffAbstract
     public function __construct(int $distance, int $minutes)
     {
         parent::__construct($distance, $minutes);
-        $this->minutes = $this->minutes - $this->minutes % 60 + 60;
+        if ($this->minutes % 60 != 0) {
+            $this->minutes = $this->minutes - $this->minutes % 60 + 60;
+        }
+       
     }
 }
